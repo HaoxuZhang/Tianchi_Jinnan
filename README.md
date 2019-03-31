@@ -38,7 +38,10 @@
 
 
 ### 生成submit文件
-`code/work_dirs/submit_weights/`文件夹下放置两个训练好的权重，其中`submit_a.pth`为A榜最好得分0.5685的权重，`submit_b.pth`为B榜最好得分0.5272的权重，推理结果以当前时间命名，存放于`submit`文件下。
+请下载权重后在`code/work_dirs/submit_weights/`文件夹下放置两个训练好的权重，其中`submit_a.pth`为A榜最好得分0.5685的权重，`submit_b.pth`为B榜最好得分0.5272的权重，推理结果以当前时间命名，存放于`submit`文件下。
+>#### 权重下载地址 
+[百度云盘](https://pan.baidu.com/s/1q1wdU_VgDuFZ7Oct6RLfqQ)
+提取码：hlmo
 >#### A榜结果
     cd code/ 
     bash submit_a.sh
