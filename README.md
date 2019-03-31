@@ -6,13 +6,13 @@
     bash install.sh
 
 ### 对数据集进行预处理
-请将 jinnan2_round1_20190305.zip, jinnan2_round1_test_a_20190306.zip, jinnan2_round1_test_b_20190326.zip 放置于 data/First_round_data/ 文件夹下，运行以下命令，数据集预处理需要大约10分钟
+请将`jinnan2_round1_20190305.zip`，`jinnan2_round1_test_a_20190306.zip`，`jinnan2_round1_test_b_20190326.zip`放置于 `data/First_round_data/`文件夹下，运行以下命令，数据集预处理需要大约10分钟
 
     cd data/First_round_data/ 
     bash data_preprocessing.sh
 
 #### 预处理介绍
-该模型所用的训练集及验证集在`data`文件下，`data/train_val/`文件下为训练集+验证集的所有图片，共1381张图片。`data/annotations/train.json` 和 `data/annotations/val.json`分别是训练集和验证集的json文件。训练集共有1282张图片，其中882张图片是从比赛提供的restricted图片里随机选择的限制品图片，剩余400张是利用代码生成的图片，具体生成方式为：从限制品图片中随机选择1200个`bounding box`信息，求得该限制品的`bounding box`与`minAreaRect`的重叠区域，将该区域随机覆盖到一张随机`normal`图片的随机位置上，以此来合成新的限制品图片。验证集为99张`restricted`图片。（注：我们随机选择了400张normal图片作为可以被覆盖的图片，但400张图片中可能有少量图片未被随机选中并覆盖，则此类图片不会被训练，因此训练集中合成的新图片可能小于400张，训练集总图片数可能小于1282张。
+该模型所用的训练集及验证集在`data`文件下，`data/train_val/`文件下为训练集+验证集的所有图片，共1381张图片。`data/annotations/train.json` 和 `data/annotations/val.json`分别是训练集和验证集的json文件。训练集共有1282张图片，其中882张图片是从比赛提供的restricted图片里随机选择的限制品图片，剩余400张是利用代码生成的图片，具体生成方式为：从限制品图片中随机选择1200个`bounding box`信息，求得该限制品的`bounding box`与`minAreaRect`的重叠区域，将该区域随机覆盖到一张随机`normal`图片的随机位置上，以此来合成新的限制品图片。验证集为99张`restricted`图片。（注：我随机选择了400张normal图片作为可以被覆盖的图片，但400张图片中可能有少量图片未被随机选中并覆盖，则此类图片不会被训练，因此训练集中合成的新图片可能小于400张，训练集总图片数可能小于1282张。
 
 #### 数据集结构：
     |--First_round_data
@@ -38,12 +38,12 @@
 
 
 ### 生成submit文件
-code/work_dirs/submit_weights/ 文件夹下有两个训练好的权重，其中submit_a.pth为A榜最好得分0.5685的权重，submit_b.pth为B榜最好得分0.5272的权重
+`code/work_dirs/submit_weights/`文件夹下放置两个训练好的权重，其中`submit_a.pth`为A榜最好得分0.5685的权重，`submit_b.pth`为B榜最好得分0.5272的权重
 #### A榜结果
     cd code/ 
     bash submit_a.sh
 #### B榜结果 
     cd code/
     bash submit_b.sh
-推理结果以当前时间命名，存放于 submit 文件下。
+推理结果以当前时间命名，存放于`submit`文件下。
 
